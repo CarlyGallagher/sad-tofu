@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="style.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
     <title>tofu-test</title>
 </head>
 
@@ -14,15 +14,16 @@
         <h1>Coding Quiz!</h1>
         <p>Answer the following 5 questions within the time limit. Keep in mind that wrong
             answers will subtract 10 seconds from the timer!</p>
-        <div id="question-container" class="hide">
-            <div id="question"> question</div>
-            <div id="answer-buttons" class="btn-grid">
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 2</button>
-                <button class="btn">Answer 3</button>
-                <button class="btn">Answer 4</button>
+        <section class="test">
+            <div id="question-container" class="hide">
+                <div id="question"> question</div>
+                <div id="answer-buttons" class="btn-grid">
+                    <button class="btn">Answer 1</button>
+                    <button class="btn">Answer 2</button>
+                    <button class="btn">Answer 3</button>
+                    <button class="btn">Answer 4</button>
+                </div>
             </div>
-        </div>
     </div>
     <div class="controls">
         <button id="start-quiz">Start Quiz</button>
@@ -30,14 +31,19 @@
         <button id="quiz-again"></button>
         <button id="clear-score"></button>
     </div>
-    <h3 class="view-scores">
-        <div src="high-scores">View Highscores</div>
-    </h3>
+    </section>
+    <section class="top-page">
+        <div class="scores">
+            <h3 href="#" class="score-text">
+                <div href="#" src="high-scores">View Highscores</div>
+            </h3>
+        </div>
 
-    <div class="timer">
-        <div class="timer-text"></div>
-        <h3>Time:</h3>
-    </div>
+        <div class="timer">
+            <div class="timer-text"></div>
+            <h3>Time:</h3>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>

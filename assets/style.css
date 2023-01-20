@@ -1,0 +1,34 @@
+
+:root {
+    --buttons: color rgb(52, 169, 155);
+    --text-white: color white;
+    --text-black: color black;
+    --container: color rgb(172, 200, 199);
+    --hover: color darkslateblue;
+    --font-size: 85%;
+}
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-page {
+    font-size: var(--font-size);
+    order: -3;
+    display: flex;
+    justify-content: space-between;
+    padding: 0%;
+    margin: 0%;
+}
+
+div.timer {
+    padding-right: 2rem;
+    color: var(--text-black);
+}
+
+div.scores:hover {
+color: var(--hover)
+}
+
