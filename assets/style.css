@@ -1,10 +1,10 @@
-
 :root {
-    --buttons: color rgb(52, 169, 155);
-    --text-white: color white;
-    --text-black: color black;
-    --container: color rgb(172, 200, 199);
-    --hover: color darkslateblue;
+    --buttons: rgb(0, 152, 241);
+    --text-black: black;
+    --container: rgba(231, 240, 241, 0.883);
+    --hover: darkslateblue;
+    --white: white;
+    --button-hover: rgb(48, 182, 231);
     --font-size: 85%;
 }
 
@@ -29,6 +29,58 @@ div.timer {
 }
 
 div.scores:hover {
-color: var(--hover)
+    color: var(--hover);
 }
 
+div#card {
+    border: solid 2px;
+    border-color: var(--text-black);
+    background-color: var(--container);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+p {
+    text-align: center;
+}
+
+button {
+    background-color: var(--buttons);
+    color: var(--white);
+    padding: 5px;
+    margin-bottom: 15px;
+    border-color: var(--white);
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+button:active {
+    background-color: var(--buttons);
+    box-shadow: 2px 2px var(--button-hover);
+    transform: translateY(4px);
+}
+
+div#answer-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+button.btn {
+    text-align: left;
+}
+
+h2{
+    text-align: center;
+}
+
+div#inputform {
+    padding-bottom: 15px;
+}
+
+.hide {
+    display: none;
+}

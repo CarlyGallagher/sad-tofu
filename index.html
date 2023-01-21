@@ -10,13 +10,16 @@
 </head>
 
 <body>
-    <div class="card">
+    <div id="card">
+        <!-- this is the main open page -->
         <h1>Coding Quiz!</h1>
         <p>Answer the following 5 questions within the time limit. Keep in mind that wrong
             answers will subtract 10 seconds from the timer!</p>
+            <button id="start-quiz">Start Quiz</button>
+            <!-- this area is the test -->
         <section class="test">
             <div id="question-container" class="hide">
-                <div id="question"> question</div>
+                <h2 id="question"> question</h2>
                 <div id="answer-buttons" class="btn-grid">
                     <button class="btn">Answer 1</button>
                     <button class="btn">Answer 2</button>
@@ -24,14 +27,25 @@
                     <button class="btn">Answer 4</button>
                 </div>
             </div>
-    </div>
-    <div class="controls">
-        <button id="start-quiz">Start Quiz</button>
-        <button id="submit-score"></button>
-        <button id="quiz-again"></button>
-        <button id="clear-score"></button>
+        </section>
+        <!-- this area is the initals page -->
+        <div id="end-quiz" class="hide">
+            <h3>All Done!</h3>
+            <div>Final Score</div>
+            <div id="input-form">
+                <label for="initials">Enter Initials here:</label>
+                <input id="initials" type="text" placeholder="intials here"></input>
+                <button id="submit-score">submit</button>
+            </div>
+        </div>
+        <!-- final page/highscores -->
+        <div id="high-scores" class="hide">
+            <button id="quiz-again" class="hide">Take quiz again!</button>
+            <button id="clear-score" class="hide">clear Highscores</button>
+        </div>
     </div>
     </section>
+    <!-- outside of the container. Only constant -->
     <section class="top-page">
         <div class="scores">
             <h3 href="#" class="score-text">
