@@ -42,6 +42,11 @@ div#card {
     flex-wrap: wrap;
 }
 
+div#start-Quiz {
+    text-align: center;
+    align-items: center;
+}
+
 p {
     text-align: center;
 }
