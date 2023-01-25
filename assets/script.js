@@ -4,7 +4,8 @@ var timerEl = document.getElementById('time-left');
 var timer;
 var timerVal;
 var isWin = false;
-var questionDiv = document.getElementById('.question');
+var questionDiv = document.getElementById('question');
+var btn = document.getEl
 
 
 startQuiz.addEventListener('click', beginQuiz);
@@ -48,14 +49,14 @@ function reduceTime() {
 
 
 function nextQuestion(){
-    questionDiv.innerHTML = 'helloworld';
+    questionDiv.innerHTML = myQuestions[0].question;
 
 }
 
 //questionlist
 var myQuestions = [
     {
-        question: 'Which of these is not a primitive type',
+        question: 'Which of these is not a primitive type?',
         answers: [
             { text: 'boolean' },
             { text: 'number' },
