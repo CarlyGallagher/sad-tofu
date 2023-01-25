@@ -40,6 +40,10 @@ function startTimer() {
     }, 1000);
 }
 
+function pauseTime(){
+    
+}
+
 //reduce time
 function reduceTime() {
     if (timerVal < 6) {
