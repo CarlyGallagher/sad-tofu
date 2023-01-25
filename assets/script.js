@@ -45,12 +45,9 @@ function reduceTime() {
     }
 }
 
-function displayQuestion(myQuestions) {
-
-}
 
 function nextQuestion(){
-    
+
 }
 
 //questionlist
