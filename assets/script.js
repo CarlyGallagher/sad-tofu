@@ -4,6 +4,7 @@ var timerEl = document.getElementById('time-left');
 var timer;
 var timerVal;
 var isWin = false;
+var questionDiv = document.getElementById('.question');
 
 
 startQuiz.addEventListener('click', beginQuiz);
@@ -47,6 +48,7 @@ function reduceTime() {
 
 
 function nextQuestion(){
+    questionDiv.innerHTML = 'helloworld';
 
 }
 
