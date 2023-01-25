@@ -41,7 +41,7 @@ function startTimer() {
 }
 
 function pauseTime(){
-    
+    clearInterval(timer);
 }
 
 //reduce time
@@ -109,6 +109,7 @@ function checkIfEndQuiz() {
 function scorePage() {
     endQuizEl.classList.remove('hide');
     questionContainerEl.classList.add('hide');
+    pauseTime();
 }
 
 //questionlist
