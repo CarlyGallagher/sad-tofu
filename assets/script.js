@@ -7,6 +7,7 @@ var isWin = false;
 var questionDiv = document.getElementById('question');
 var btnContainer = document.getElementById('answer-buttons');
 var currentQuestion = 0;
+var endQuizEl = document.getElementById('end-quiz');
 
 
 startQuiz.addEventListener('click', beginQuiz);
@@ -49,7 +50,7 @@ function reduceTime() {
 }
 
 //creates text in button then brings the next over
-function nextQuestion(){
+function nextQuestion() {
     btnContainer.innerHTML = '';
     var q = myQuestions[currentQuestion];
 
@@ -57,7 +58,7 @@ function nextQuestion(){
 
     for (var i = 0; i < q.answers.length; i++) {
         var answer = q.answers[i];
-        
+
         var btn = document.createElement('button');
         btn.textContent = answer.text;
         btn.setAttribute('value', answer.text);
@@ -73,7 +74,7 @@ function checkAnswer(event) {
     var qAnswer = btnClicked.getAttribute('value');
     var correctAnswer = myQuestions[currentQuestion].correctAnswer;
 
-    if(qAnswer === correctAnswer) {
+    if (qAnswer === correctAnswer) {
         // keep going...
         console.log('correct');
         checkIfEndQuiz();
@@ -84,15 +85,25 @@ function checkAnswer(event) {
     }
 }
 
+//brings you to the set initials page
+
 function checkIfEndQuiz() {
-    if(currentQuestion < myQuestions.length - 1) {
+    if (currentQuestion < myQuestions.length - 1) {
         // TODO: save the question index in a correct answers array
+
         // next question
         currentQuestion++;
         nextQuestion();
     } else {
+
+        endQuizEl.classList.remove('hide');
+        questionContainerEl.classList.add('hide');
         // end game
     }
+}
+
+function scorePage() {
+
 }
 
 //questionlist
