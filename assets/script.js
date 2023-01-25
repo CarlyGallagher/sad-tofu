@@ -8,7 +8,7 @@ var isWin = false;
 
 startQuiz.addEventListener('click', beginQuiz);
 
-
+//starts quiz and timer
 function beginQuiz() {
     console.log('start');
     startQuiz.classList.add('hide');
@@ -18,7 +18,7 @@ function beginQuiz() {
     questionContainerEl.classList.remove('hide');
     nextQuestion();
 };
-
+//sets timer
 function startTimer() {
     timer = setInterval(function () {
         timerVal--;
@@ -35,7 +35,7 @@ function startTimer() {
         }
     }, 1000);
 }
-
+//reduce time
 function reduceTime() {
     if (timerVal < 6) {
         timerVal <= 0
@@ -49,6 +49,11 @@ function displayQuestion(myQuestions) {
 
 }
 
+function nextQuestion(){
+    
+}
+
+//questionlist
 var myQuestions = [
     {
         question: 'Which of these is not a primitive type',
