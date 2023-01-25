@@ -35,10 +35,11 @@ function startTimer() {
         }
         if (timerVal === 0) {
             clearInterval(timer);
-            loseGame();
+            scorePage();
         }
     }, 1000);
 }
+
 //reduce time
 function reduceTime() {
     if (timerVal < 6) {
@@ -79,14 +80,14 @@ function checkAnswer(event) {
         console.log('correct');
         checkIfEndQuiz();
     } else {
-        console.log('incorrect :(');
+        console.log('incorrect');
+        reduceTime();
         // do timer stuff
         checkIfEndQuiz();
     }
 }
 
 //brings you to the set initials page
-
 function checkIfEndQuiz() {
     if (currentQuestion < myQuestions.length - 1) {
         // TODO: save the question index in a correct answers array
@@ -95,15 +96,15 @@ function checkIfEndQuiz() {
         currentQuestion++;
         nextQuestion();
     } else {
-
-        endQuizEl.classList.remove('hide');
-        questionContainerEl.classList.add('hide');
+        scorePage();
         // end game
     }
 }
 
+//set initials and score page
 function scorePage() {
-
+    endQuizEl.classList.remove('hide');
+    questionContainerEl.classList.add('hide');
 }
 
 //questionlist
