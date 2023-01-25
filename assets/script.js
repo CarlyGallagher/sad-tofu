@@ -5,7 +5,8 @@ var timer;
 var timerVal;
 var isWin = false;
 var questionDiv = document.getElementById('question');
-var btn = document.getEl
+var btnContainer = document.getElementById('answer-buttons');
+var currentQuestion = 0;
 
 
 startQuiz.addEventListener('click', beginQuiz);
@@ -15,8 +16,8 @@ function beginQuiz() {
     console.log('start');
     startQuiz.classList.add('hide');
     startTimer();
-    isWin = false
-    timerVal = 50
+    isWin = false;
+    timerVal = 50;
     questionContainerEl.classList.remove('hide');
     nextQuestion();
 };
@@ -47,10 +48,51 @@ function reduceTime() {
     }
 }
 
-
+//creates text in button then brings the next over
 function nextQuestion(){
-    questionDiv.innerHTML = myQuestions[0].question;
+    btnContainer.innerHTML = '';
+    var q = myQuestions[currentQuestion];
 
+    questionDiv.innerHTML = q.question;
+
+    for (var i = 0; i < q.answers.length; i++) {
+        var answer = q.answers[i];
+        
+        var btn = document.createElement('button');
+        btn.textContent = answer.text;
+        btn.setAttribute('value', answer.text);
+        btn.addEventListener('click', checkAnswer);
+
+        btnContainer.append(btn);
+    }
+}
+
+function checkAnswer(event) {
+    var btnClicked = event.target;
+
+    var qAnswer = btnClicked.getAttribute('value');
+    var correctAnswer = myQuestions[currentQuestion].correctAnswer;
+
+    if(qAnswer === correctAnswer) {
+        // keep going...
+        console.log('correct');
+        checkIfEndQuiz();
+    } else {
+        console.log('incorrect :(');
+        // do timer stuff
+        checkIfEndQuiz();
+    }
+}
+
+function checkIfEndQuiz() {
+    if(currentQuestion < myQuestions.length - 1) {
+        // TODO: save the question index in a correct answers array
+        // next question
+        currentQuestion++;
+        nextQuestion();
+    } else {
+        // end game
+    }
 }
 
 //questionlist
@@ -95,7 +137,7 @@ var myQuestions = [
     {
         question: 'Which of these  comparisons means strict equality?',
         answers: [
-            { text: '>=' },
+            { text: '===' },
             { text: '||' },
             { text: '!=' },
             { text: '&&' }],
