@@ -29,10 +29,13 @@
         <!-- this area is the initals page -->
         <div id="end-quiz" class="hide">
             <h3>All Done!</h3>
-            <div>Final Score</div>
             <div id="input-form">
                 <label for="initials">Enter Initials here:</label>
                 <input id="initials" type="text" placeholder="intials here"></input>
+                <div id="scores">
+                    <label for="score">score</label>
+                    <input type="score" name="score" id="scoreInput" placeholder="00">
+                </div>
                 <button id="submit-score">submit</button>
             </div>
         </div>
@@ -45,9 +48,9 @@
     </section>
     <!-- outside of the container. Only constant -->
     <section class="top-page">
-        <div class="scores">
+        <div class="score">
             <h3 href="#" class="score-text">
-                <div href="#" src="high-scores">View Highscores</div>
+                <div href="#" src="high-scores">Highscores</div>
             </h3>
         </div>
         <div id="timer">Time left: <span id="time-left"></span></div>

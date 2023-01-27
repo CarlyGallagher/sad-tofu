@@ -8,13 +8,17 @@ var questionDiv = document.getElementById('question');
 var btnContainer = document.getElementById('answer-buttons');
 var currentQuestion = 0;
 var endQuizEl = document.getElementById('end-quiz');
+var initialEl = document.getElementById('initials');
+var scoreEl = document.getElementById('scoreInput');
+var SubmitScore = document.getElementById('submit-score');
+var finalPage = document.getElementById('high-scores');
 
 
 startQuiz.addEventListener('click', beginQuiz);
 
+
 //starts quiz and timer
 function beginQuiz() {
-    console.log('start');
     startQuiz.classList.add('hide');
     startTimer();
     isWin = false;
@@ -40,7 +44,7 @@ function startTimer() {
     }, 1000);
 }
 
-function pauseTime(){
+function pauseTime() {
     clearInterval(timer);
 }
 
@@ -71,6 +75,7 @@ function nextQuestion() {
 
         btnContainer.append(btn);
     }
+
 }
 
 function checkAnswer(event) {
@@ -80,13 +85,11 @@ function checkAnswer(event) {
     var correctAnswer = myQuestions[currentQuestion].correctAnswer;
 
     if (qAnswer === correctAnswer) {
-        // keep going...
         console.log('correct');
         checkIfEndQuiz();
     } else {
         console.log('incorrect');
         reduceTime();
-        // do timer stuff
         checkIfEndQuiz();
     }
 }
@@ -94,7 +97,6 @@ function checkAnswer(event) {
 //brings you to the set initials page
 function checkIfEndQuiz() {
     if (currentQuestion < myQuestions.length - 1) {
-        // TODO: save the question index in a correct answers array
 
         // next question
         currentQuestion++;
@@ -110,7 +112,36 @@ function scorePage() {
     endQuizEl.classList.remove('hide');
     questionContainerEl.classList.add('hide');
     pauseTime();
+    initialEl.addEventListener("click", function () {
+        var userScore = scoreEl.value;
+        var userInitials = initialEl.value;
+
+        var highScores =
+            JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+        var newScore = {
+            score: userScore,
+            initial: userInitials,
+        };
+
+        var setScore = window.localStorage.getItem('timerVal', JSON.stringify('pauseTime'));
+        scoreEl.textContent = 
+        highScores.push(newScore);
+        console.log(scoreEl);
+        window.localStorage.setItem('highscores', JSON.stringify(highScores));
+    });
 }
+
+function submitPage() {
+    endQuizEl.classList.add('hide');
+    finalPage.classList.remove('hide');
+    
+}
+
+function final(){
+    finalPage.addEventListener("click",submitPage);
+}
+
 
 //questionlist
 var myQuestions = [
